@@ -30,7 +30,7 @@ class Sextractor < Formula
     system "autoconf"
     system "autoheader"
     system "./configure", "--prefix=#{prefix}", "--enable-accelerate"
-    system "make"
+    system "make", "VERBOSE=1", ">test.txt"
     system "make", "check" if build.with? "check"
     system "make", "install"
   end
